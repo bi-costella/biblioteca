@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>Biblioteca</title>
+		<meta charset="UTF-8">
+		<style>
+			table, th, td{
+			border: 1px solid black;
+			}
+	
+			table{
+			border-collapse:collapse;
+			}
+	
+			table, th, td{
+			border: 2px solid rgba(4, 39, 4, 0.29);
+			}
+			
+			table{
+				width:50%;
+			}
+	
+			th{
+			height:50px;
+			}
+	
+			td{
+				text-align:center;
+			}
+	
+			td{
+			height:50px;
+			vertical-align:bottom;
+			}
+	
+			td{
+			padding:15px;
+			}
+	
+			th{
+			background-color:#3ea701;
+			color:white;
+			}
+			a:link {
+			color:#ff0000;
+			text-decoration:none;
+			}
+			a:visited {
+			color:#3ea701;
+			text-decoration:none;
+			}
+	
+			a:hover {
+			color:#ffffff;
+			text-decoration:underline;
+			background-color: #3ea701;
+			}
+			a:active {
+			color:#3ea701;
+			text-decoration:underline;
+			background-color:#00ff00;
+			}
+	
+			.form-btn{
+			font-family: Poppins-Medium;
+			font-size: 12px;
+			color: #ffffff;
+			line-height: 1.2;
+			text-transform: uppercase;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 20px;
+			width: 80px;
+			height: 30px;
+			background-color: #3ea701;
+			border-radius: 5px;
+			border-color: #3ea701;
+			transition: all 0.4s;
+			}
+	
+			.input-form {
+			font-family: Poppins-SemiBold;
+			font-size: 18px;
+			color: #555555;
+			line-height: 1.2;
+			display: block;
+			width: 30%;
+			height: 30px;
+			background: transparent;
+			padding: 0 5px;
+	}
+	
+		</style>
+	</head>
+	<body>
+		<h1>Lista de Livros</h1>
+		<hr>
+		<form action="/filtrarLivro" method="post">
+               
+            <label for="tituloobra">Título da Obra (use % como caracter coringa):</label><br>
+            <input  class="input-form" type="text" name="tituloobra" id="tituloobra" size="30"><br>
+           
+            <input class="form-btn" type="submit" name="filtrar" value="Filtrar">
+           
+        </form>
+
+		<a href="/formLivros">Novo Livro</a><br><br>
+		<a href="/">Voltar para Tela Principal</a>&nbsp;
+		<form action="/excluirLivro" method="post">
+		<input type="submit" name="acao" value="Excluir">
+		<table border="1">
+			<tr>
+				<th>Seleção</th>
+				<th>ID</th>
+                <th>Titulo da obra</th>
+                <th>Idioma</th>
+                <th>Classificação</th>
+                <th>Autor Obra</th>
+                <th>Editora</th>
+                <th>Tipo de Midia</th>
+			</tr>
+	        <% livros.forEach((li, index) => { %>
+			<tr>
+				<td><input type="radio" name="idlivros" value="<%= li.idlivros %>"></td>
+				<td><%= li.idlivros%></td>
+				<td><%= li.tituloobra%></td>
+				<td><%= li.idioma%></td>
+                <td><%= li.classificacao%></td>
+                <td><%= li.autorobra%></td>
+                <td><%= li.editora%></td>
+                <td><%= li.tipomidia%></td>
+			</tr>
+			<% }) %>
+		</table>
+	</body>
+</html>

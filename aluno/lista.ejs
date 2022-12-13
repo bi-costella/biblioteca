@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <title>Biblioteca</title>
+        <meta charset="UTF-8">
+        <style>
+            table, th, td{
+            border: 1px solid black;
+            }
+    
+            table{
+            border-collapse:collapse;
+            }
+    
+            table, th, td{
+            border: 2px solid rgba(4, 39, 4, 0.29);
+            }
+            
+            table{
+                width:50%;
+            }
+    
+            th{
+            height:50px;
+            }
+    
+            td{
+            text-align:center;
+            }
+    
+            td{
+            height:50px;
+            vertical-align:bottom;
+            }
+    
+            td{
+            padding:15px;
+            }
+    
+            th{
+            background-color:#3ea701;
+            color:white;
+            }
+            a:link {
+            color:#ff0000;
+            text-decoration:none;
+            }
+            a:visited {
+            color:#3ea701;
+            text-decoration:none;
+            }
+    
+            a:hover {
+            color:#ffffff;
+            text-decoration:underline;
+            background-color: #3ea701;
+            }
+            a:active {
+            color:#3ea701;
+            text-decoration:underline;
+            background-color:#00ff00;
+            }
+    
+            .form-btn{
+            font-family: Poppins-Medium;
+            font-size: 12px;
+            color: #ffffff;
+            line-height: 1.2;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            width: 80px;
+            height: 30px;
+            background-color: #3ea701;
+            border-radius: 5px;
+            border-color: #3ea701;
+            transition: all 0.4s;
+            }
+    
+            .input-form {
+            font-family: Poppins-SemiBold;
+            font-size: 18px;
+            color: #555555;
+            line-height: 1.2;
+            display: block;
+            width: 30%;
+            height: 30px;
+            background: transparent;
+            padding: 0 5px;
+    }
+    
+        </style>
+    </head>
+    <body>
+        <h1>Lista de Alunos</h1>
+        <hr>
+       
+        <form action="/filtrarAluno" method="post">
+               
+            <label for="nome">Nome (use % como caracter coringa):</label><br>
+            <input class="input-form" type="text" name="nome" id="nome" size="30"><br>
+           
+            <input class="form-btn" type="submit" name="filtrar" value="Filtrar">
+           
+        </form>
+ 
+        <a href="/formAluno">Novo Aluno</a><br><br>
+        <a href="/">Voltar para Tela Principal</a>&nbsp;
+		<form action="/excluirAluno" method="post">
+		<input type="submit" name="acao" value="Excluir">
+        <table border="1">
+            <tr>
+                <th>Seleção</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>RG</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Curso</th>
+                <th>Integralização Curso</th>
+                <th>Prev. Finalização Curso</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Bairro</th>
+                <th>Logradouro</th>
+                <th>N°</th>
+            </tr>
+            <% alunos.forEach((al, index) => { %>
+            <tr><td>
+                <input type="radio" name="cpf" value="<%= al.cpf %>"></td>
+                <td><%= al.nome %></td>
+                <td><%= al.cpf %></td>
+                <td><%= al.rg %></td>
+                <td><%= al.telefonealuno %></td>
+                <td><%= al.emailaluno %></td>
+                <td><%= al.curso %></td>
+                <td><%= al.intcurso %></td>
+                <td><%= al.fincurso %></td>
+                <td><%= al.estado %></td>
+                <td><%= al.cidade %></td>
+                <td><%= al.bairro %></td>
+                <td><%= al.logradouro %></td>
+                <td><%= al.numerocasa %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </body>
+</html>

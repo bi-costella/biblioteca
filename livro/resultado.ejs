@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Biblioteca</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+			<p>Dados do Livro</p>
+			<ul>
+          <li>Título: <%= param.getTituloObra()%></li>
+          <li>Idioma: <%= param.getIdioma()%></li>
+          <li>Classificação: <%= param.getClassificacao()%></li>
+          <li>Autor(a): <%= param.getAutorObra()%></li>
+          <li>Editora: <%= param.getEditora()%></li>
+          <li>Tipo de Mídia: <%= param.getTipoMidia()%></li>
+      </ul>
+
+			<p>Livro registrado com sucesso.</p>
+
+			<a href="/inicio">Voltar ao Início</a>
+            <a href="/livros">Consultar Livros</a>
+  </body>
+</html>
